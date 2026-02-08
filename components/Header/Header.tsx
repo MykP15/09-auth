@@ -1,14 +1,9 @@
-"use client"
-
 import Link from "next/link";
 import css from "./Header.module.css";
 import AuthNavigation from "@/components/AuthNavigation/AuthNavigation";
-import { useAuthStore } from "@/lib/store/authStore";
 
 export default function Header() {
 
-    const { isAuthenticated } = useAuthStore()
-  
   return (
     <header className={css.header}>
       <Link href="/">
@@ -21,11 +16,9 @@ export default function Header() {
             <Link href="/" className={css.navigation}>Home</Link>
           </li>
 
-          {isAuthenticated ? <li>
+         <li>
             <Link href="/notes/filter/all">Notes</Link>
-          </li> : <li>
-            <Link href="/sign-in">Notes</Link>
-          </li>}
+          </li>
 
           <AuthNavigation />
         </ul>

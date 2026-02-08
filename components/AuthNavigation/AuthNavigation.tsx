@@ -16,25 +16,9 @@ export default function AuthNavigation() {
     router.push("/sign-in");
   }
 
-  if (!isAuthenticated) {
+  if (isAuthenticated) {
     return (
       <>
-        <li className={css.navigationItem}>
-          <Link href="/sign-in" className={css.navigationLink} prefetch={false}>
-            Login
-          </Link>
-        </li>
-        <li className={css.navigationItem}>
-          <Link href="/sign-up" className={css.navigationLink} prefetch={false}>
-            Sign up
-          </Link>
-        </li>
-      </>
-    );
-  }
-
-  return (
-    <>
       <li className={css.navigationItem}>
         <Link href="/profile" className={css.navigationLink} prefetch={false}>
           Profile
@@ -48,5 +32,21 @@ export default function AuthNavigation() {
         </button>
       </li>
     </>
+    );
+  }
+
+  return (
+    <>
+        <li className={css.navigationItem}>
+          <Link href="/sign-in" className={css.navigationLink} prefetch={false}>
+            Login
+          </Link>
+        </li>
+        <li className={css.navigationItem}>
+          <Link href="/sign-up" className={css.navigationLink} prefetch={false}>
+            Sign up
+          </Link>
+        </li>
+      </>
   );
 }
