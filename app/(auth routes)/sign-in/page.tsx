@@ -26,7 +26,7 @@ export default function SignInPage() {
     try {
       const user = await login({ email, password });
       setUser(user);
-      router.push("/");
+      router.push("/profile");
     } catch (err) {
       const message = err instanceof Error ? err.message : "Login failed";
       setError(message);
