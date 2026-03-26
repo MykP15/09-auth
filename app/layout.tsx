@@ -40,13 +40,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${roboto.variable}`}>
+      <body className={`${roboto.variable}`}>
         <TanStackProvider>
           <AuthProvider>
         <Header />
           <div>{children}
-            {modal}
           </div>
+            <div>{modal}</div>
           <Footer />
             <div id="modal-root" />
           </AuthProvider>
