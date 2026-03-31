@@ -32,12 +32,12 @@ function NoteForm() {
     mutationFn: createNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] })
-      router.push(`/notes/filter/all`)
       clearDraft()
+      router.push(`/notes/filter/all`)
     }
   })
 
-  function handleback() {
+  function handleBack() {
     router.push(`/notes/filter/all`)
   }
 
@@ -67,7 +67,7 @@ function NoteForm() {
     }
   }
 
-  function handleCahge(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setDraft({ ...draft, [event.target.name]: event.target.value })
     setErrors((prev) => ({ ...prev, [event.target.name]: "" }))
   }
@@ -76,7 +76,7 @@ function NoteForm() {
         <form action={handleSubmit}> 
           <div className={css.formGroup}>
             <label htmlFor="title">Title</label>
-            <input id="title" type="text" name="title" className={css.input} onChange={handleCahge} defaultValue={draft.title}/>
+            <input id="title" type="text" name="title" className={css.input} onChange={handleChange} defaultValue={draft.title}/>
           <span className={css.error}>{errors.title}</span>
           </div>
 
@@ -95,7 +95,7 @@ function NoteForm() {
 
           <div className={css.formGroup}>
             <label htmlFor="tag">Tag</label>
-            <select id="tag" name="tag" className={css.select} onChange={handleCahge} defaultValue={draft.tag}>
+            <select id="tag" name="tag" className={css.select} onChange={handleChange} defaultValue={draft.tag}>
               <option value="Todo">Todo</option>
               <option value="Work">Work</option>
               <option value="Personal">Personal</option>
@@ -106,7 +106,7 @@ function NoteForm() {
           </div>
           
           <div className={css.actions}>
-            <button type="button" className={css.cancelButton} onClick={handleback}>
+            <button type="button" className={css.cancelButton} onClick={handleBack}>
               Cancel
             </button>
             <button
