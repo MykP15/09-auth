@@ -87,7 +87,7 @@ function NoteForm() {
                 name="content"
                 rows={8}
             className={css.textarea}
-            onChange={handleCahge}
+            onChange={handleChange}
             defaultValue={draft.content}
               />
           <span className={css.error}>{errors.content}</span>
